@@ -1,3 +1,4 @@
+from sympy import *
 import math
 
 def function (x): # изначально заданная функция
@@ -18,6 +19,7 @@ for x in range(-100,101):# берем значения x от -100 до 100, т�
         yb = y
 
 e = 0.001
+'''
 while abs(y) > e:
     x0 = (a + b) / 2  # начальное приближение x0
     y = function(x0)
@@ -29,17 +31,9 @@ while abs(y) > e:
         ya = y
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', y)
-
-
-
-
-
-
 '''
-y1 = diff(y) # берем производную 1 порядка
-print("y' = ", y1)
-sol = solve(y1,x)
-print(sol)
-#y1 = Poly(diff(y))
-#QuadraticSolution(y1.coeffs()[0], y1.coeffs()[1], y1.coeffs()[2])
-'''
+x ,y = symbols('x ydd', real = True)
+ydd = diff(diff(function(x)))
+#print(ydd)
+x = a
+print(ydd)
