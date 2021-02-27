@@ -32,8 +32,8 @@ while abs(y) > e:
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', y)
 '''
-x ,y = symbols('x ydd', real = True)
+#x = symbols('x')
 ydd = diff(diff(function(x)))
 #print(ydd)
-x = a
+
 print(ydd)
