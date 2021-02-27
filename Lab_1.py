@@ -1,5 +1,6 @@
 from sympy import *
 import math
+#import numpy as np
 
 def function (x): # изначально заданная функция
      y = x**3 + 0.2 * x**2 + 0.5 * x - 1.2 
@@ -19,7 +20,9 @@ for x in range(-100,101):# берем значения x от -100 до 100, т�
         yb = y
 
 e = 0.001
-'''
+
+# Метод биссекции
+print("Метод биссекции:")
 while abs(y) > e:
     x0 = (a + b) / 2  # начальное приближение x0
     y = function(x0)
@@ -31,9 +34,23 @@ while abs(y) > e:
         ya = y
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', y)
-'''
-#x = symbols('x')
-ydd = diff(diff(function(x)))
-#print(ydd)
 
-print(ydd)
+# Метод хорд
+print("Метод хорд:")
+y = function(x)
+x = Symbol('x')
+ddy = diff(diff(function(x)))
+
+if (function(a) * ddy.subs(x, a)) > 0:
+    x0 = b
+    while abs(y) > e:
+        x0 = x0 - (function(x0) * (a - x0)) / (function(a) - function(x0))
+        y = function(x0)
+    
+else:
+    x0 = a
+    while abs(y) > e:
+        x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0))
+        y = function(x0)
+
+print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ',"%f" %(y))
