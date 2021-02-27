@@ -53,4 +53,25 @@ else: # если точка b неподвижна, то двигается то
         x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0))
         y = function(x0)
 
-print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ',"%f" %(y))
+print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ',"%f" %y)
+
+
+# Метод Ньютона
+print("Метод Ньютона:")
+
+#y = function(x)
+
+dy = diff(function(x)) # берем производную по y
+if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
+    x0 = a
+    while abs(y) > e:
+        x0 = x0 - function(x0) / dy.subs(x, x0)
+        y = function(x0)
+
+else: # проверяем неподвижность точки b
+    x0 = b
+    while abs(y) > e:
+        x0 = x0 - function(x0) / dy.subs(x, x0)
+        y = function(x0)
+
+print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', '%f' %y)
