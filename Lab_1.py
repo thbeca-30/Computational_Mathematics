@@ -39,15 +39,15 @@ print('Приближенное значение корня: x0 = ', x0, ';   |y
 print("Метод хорд:")
 y = function(x)
 x = Symbol('x')
-ddy = diff(diff(function(x)))
+ddy = diff(diff(function(x))) #берем вторую производную по заданной функции
 
-if (function(a) * ddy.subs(x, a)) > 0:
+if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
     x0 = b
     while abs(y) > e:
         x0 = x0 - (function(x0) * (a - x0)) / (function(a) - function(x0))
         y = function(x0)
     
-else:
+else: # если точка b неподвижна, то двигается точка a
     x0 = a
     while abs(y) > e:
         x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0))
