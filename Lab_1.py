@@ -63,8 +63,6 @@ print('Приближенное значение корня: x0 = ', x0, ';   |y
 
 # Метод Ньютона
 print("Метод Ньютона:")
-#x = 0
-#y = function(x)
 x = Symbol('x')
 dy = diff(function(x)) # берем производную по y
 if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
