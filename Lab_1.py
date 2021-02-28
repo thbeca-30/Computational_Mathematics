@@ -1,6 +1,5 @@
 from sympy import *
 import math
-#import numpy as np
 
 def function (x): # изначально заданная функция
      y = x**3 + 0.2 * x**2 + 0.5 * x - 1.2 
@@ -23,6 +22,8 @@ e = 0.001
 
 # Метод биссекции
 print("Метод биссекции:")
+x = 0
+y = function(x)
 while abs(y) > e:
     x0 = (a + b) / 2  # начальное приближение x0
     y = function(x0)
@@ -37,8 +38,10 @@ print('Приближенное значение корня: x0 = ', x0, ';   |y
 
 # Метод хорд
 print("Метод хорд:")
+x = 0
 y = function(x)
 x = Symbol('x')
+
 ddy = diff(diff(function(x))) #берем вторую производную по заданной функции
 
 if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
@@ -58,9 +61,9 @@ print('Приближенное значение корня: x0 = ', x0, ';   |y
 
 # Метод Ньютона
 print("Метод Ньютона:")
-
-#y = function(x)
-
+x = 0
+y = function(x)
+x = Symbol('x')
 dy = diff(function(x)) # берем производную по y
 if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
     x0 = a
@@ -74,4 +77,4 @@ else: # проверяем неподвижность точки b
         x0 = x0 - function(x0) / dy.subs(x, x0)
         y = function(x0)
 
-print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', '%f' %y)
+print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', '%0.15f' %y)
