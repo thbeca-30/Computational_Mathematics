@@ -22,9 +22,7 @@ eps = 0.001
 
 # Метод биссекции
 print("Метод биссекции:")
-x = 0
-y = function(x)
-while abs(y) > eps:
+while True:
     x0 = (a + b) / 2  # начальное приближение x0
     y = function(x0)
     if ya * y < 0: #Выбираем нужный отрезок
@@ -33,49 +31,57 @@ while abs(y) > eps:
     if y * yb < 0:
         a = x0
         ya = y
+    if abs(y) < eps:
+        break
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', y)
 
 # Метод хорд
 print("Метод хорд:")
-x = 0
-y = function(x)
 x = Symbol('x')
 
 ddy = diff(diff(function(x))) #берем вторую производную по заданной функции
 
 if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
     x0 = b
-    while abs(y) > eps:
+    while True:
         x0 = x0 - (function(x0) * (a - x0)) / (function(a) - function(x0))
         y = function(x0)
+        if abs(y) < eps:
+            break
     
 else: # если точка b неподвижна, то двигается точка a
     x0 = a
-    while abs(y) > eps:
+    while True:
         x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0))
         y = function(x0)
+        if abs(y) < eps:
+            break
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ',"%f" %abs(y))
 
 
 # Метод Ньютона
 print("Метод Ньютона:")
-x = 0
-y = function(x)
+#x = 0
+#y = function(x)
 x = Symbol('x')
 dy = diff(function(x)) # берем производную по y
 if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
     x0 = a
-    while abs(y) > eps:
+    while True:
         x0 = x0 - function(x0) / dy.subs(x, x0)
         y = function(x0)
+        if abs(y) < eps:
+            break
 
 else: # проверяем неподвижность точки b
     x0 = b
-    while abs(y) > eps:
+    while True:
         x0 = x0 - function(x0) / dy.subs(x, x0)
         y = function(x0)
+        if abs(y) < eps:
+            break
 
 print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', '%0.15f' %y)
 
