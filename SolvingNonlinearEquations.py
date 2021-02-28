@@ -4,7 +4,7 @@ def function (x): # изначально заданная функция
      y = x**3 + 0.2 * x**2 + 0.5 * x - 1.2 
      return y
 
-eps = 0.001
+eps = 0.001 # заданное значение погрешности
 
 # Метод биссекции
 def BisectionMethod(a, b, ya, yb):
@@ -18,7 +18,7 @@ def BisectionMethod(a, b, ya, yb):
         if y * yb < 0:
             a = x0
             ya = y
-        if abs(y) < eps:
+        if abs(y) < eps: # условие выхода из цикла |y(x0)| < e
             break
 
     print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', y)
@@ -33,17 +33,17 @@ def ChordMethod(a, b):
     if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
         x0 = b
         while True:
-            x0 = x0 - (function(x0) * (a - x0)) / (function(a) - function(x0))
-            y = function(x0)
-            if abs(y) < eps:
+            x0 = x0 - (function(x0) * (a - x0)) / (function(a) - function(x0)) # вычисляем начальное приближение по заданной формуле
+            y = function(x0) # значение функции в данной точке
+            if abs(y) < eps: # условие выхода из цикла |y(x0)| < e
                 break
         
     else: # если точка b неподвижна, то двигается точка a
         x0 = a
         while True:
-            x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0))
-            y = function(x0)
-            if abs(y) < eps:
+            x0 = x0 - (function(x0) * (b - x0)) / (function(b) - function(x0)) # вычисляем начальное приближение по заданной формуле
+            y = function(x0) # значение функции в данной точке
+            if abs(y) < eps: # условие выхода из цикла |y(x0)| < e
                 break
 
     print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ',"%f" %abs(y))
@@ -58,17 +58,17 @@ def NewtonsMethod(a, b):
     if (function(a) * ddy.subs(x, a)) > 0: # проверяем неподвижность точки a
         x0 = a
         while True:
-            x0 = x0 - function(x0) / dy.subs(x, x0)
-            y = function(x0)
-            if abs(y) < eps:
+            x0 = x0 - function(x0) / dy.subs(x, x0) # вычисляем начальное приближение по заданной формуле
+            y = function(x0) # значение функции в данной точке
+            if abs(y) < eps: # условие выхода из цикла |y(x0)| < e
                 break
 
     else: # проверяем неподвижность точки b
         x0 = b
         while True:
-            x0 = x0 - function(x0) / dy.subs(x, x0)
-            y = function(x0)
-            if abs(y) < eps:
+            x0 = x0 - function(x0) / dy.subs(x, x0) # вычисляем начальное приближение по заданной формуле
+            y = function(x0) # значение функции в данной точке
+            if abs(y) < eps: # условие выхода из цикла |y(x0)| < e
                 break
 
     print('Приближенное значение корня: x0 = ', x0, ';   |y(x0)| < e: ', '%0.15f' %y)
@@ -80,9 +80,9 @@ def SimpleIterationMethod(a, b):
     x = Symbol('x')
     k = 0
     while (k <= 1): # подборка коэффициента
-        g = x - k * function(x)
+        g = x - k * function(x) # сжимающее уравнение
         dg = diff(g)
-        if (dg.subs(x, a) < 1) & (dg.subs(x, b) < 1) :
+        if (dg.subs(x, a) < 1) & (dg.subs(x, b) < 1) : # удовлетворение условию g'(x) < 1 [a, b]
             print('Коффициент подобран: k = ', k)
             break
         k+= 0.1
@@ -90,8 +90,8 @@ def SimpleIterationMethod(a, b):
     x1 = (a + b) / 2
     while True:
         x0 = x1
-        x1 = g.subs(x, x0)
-        if abs(x0 - x1) < eps:
+        x1 = g.subs(x, x0) # подстановка в сжимающее уравнение x0
+        if abs(x0 - x1) < eps: # условие выхода из цикла |x0 - x1| < e
             break
 
     print('Приближенное значение корня: x1 = ', x1, ';   |x0 - x1| < e: ', abs(x0 - x1))
