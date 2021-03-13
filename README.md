@@ -5,5 +5,5 @@
 ### Преподаватель: Суркова Анна Сергеевна
 ### ***Вариант №7***
 #### Язык программирования: ***Python 3***
-:white_check_mark: [Лабораторная работа №1. "Решение нелинейного уравнения"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork1)
+:white_check_mark: [Лабораторная работа №1. "Решение нелинейного уравнения"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork1)  
 :white_check_mark: [Лабораторная работа №2. "Решение системы уравнений итерационным методом и методом Гаусса - Зейделя"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork2)
