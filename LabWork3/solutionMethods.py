@@ -45,8 +45,8 @@ def newtonPolynomial(xy, x):
                 res += t * tmp * dy[i][len(dy[i])-1] / math.factorial(i+1) # Добавляем  (t * (t-1) * ...  * (t - n + 1) * dny0) / n!
             result.append(res)
     print(result)
-    keyboard.wait('\n')
-    os.system('cls')
+    #keyboard.wait('\n')
+    #os.system('cls')
 
 
 
@@ -64,8 +64,8 @@ def lagrangEquitable(xy, x):
             res += tmp * xy[i][1]
         result.append(res) # Заносим в список результатов
     print(result)
-    keyboard.wait('\n')
-    os.system('cls')
+    #keyboard.wait('\n')
+    #os.system('cls')
 
 
 
@@ -82,5 +82,5 @@ def lagrangUnequitable(xy, x):
             res += tmp * xy[i][1]
         result.append(res) # Заносим в список результатов
     print(result)
-    keyboard.wait('\n')
-    os.system('cls')
+    #keyboard.wait('\n')
+    #os.system('cls')
