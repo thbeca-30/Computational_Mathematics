@@ -11,3 +11,4 @@
 :white_check_mark: [Лабораторная работа №4. "Численное интегрирование функций"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork4)  
 :white_check_mark: [Лабораторная работа №5. "Численное дифференцирование функций"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork5)  
 :white_check_mark: [Лабораторная работа №6. "Приближенное решение обыкновенных дифференциальных уравнений"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork6)  
+:white_check_mark: [Лабораторная работа №7. "Определение собственных векторов матрицы методом Крылова"](https://github.com/thbeca-30/Computational_Mathematics/tree/master/LabWork7)  
